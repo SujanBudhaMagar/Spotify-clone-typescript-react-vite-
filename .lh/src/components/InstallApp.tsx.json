@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/InstallApp.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1740725422284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1740725422284,
+            "name": "Commit-0",
+            "content": "import { useEffect, useState } from \"react\";\r\nimport Sidebar from \"./Sidebar\";\r\nimport Navbar from \"./Navbar\";\r\nimport Footer from \"./Footer\";\r\nconst InstallApp = () => {\r\n  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);\r\n\r\n  useEffect(() => {\r\n    const isHashed = localStorage.getItem(\"token\");\r\n    if (isHashed) {\r\n      setIsLoggedIn(true);\r\n    }\r\n  }, []);\r\n  return (\r\n    <>\r\n      <div className=\"spotify-clone\">\r\n        <main className=\"main-content \">\r\n          <div className=\"flex flex-wrap\">\r\n            <Navbar />\r\n            <Sidebar />\r\n            <div>\r\n              <div className=\"mt-10 w-[80%] bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg\">\r\n                <h2 className=\"text-3xl font-semibold mb-4\">\r\n                  Download Spotify for Windows\r\n                </h2>\r\n                <p className=\"text-gray-300 mb-6\">\r\n                  Enjoy high-quality audio and offline playback, plus Windows\r\n                  Game Bar integration and a friend activity feed.\r\n                </p>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </main>\r\n        {!isLoggedIn ? <Footer /> : null}\r\n      </div>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default InstallApp;\r\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/AppContext.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1740743085267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740743741603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,30 +6,28 @@\n   useMemo,\r\n   ReactNode,\r\n } from \"react\";\r\n import { Song, ArtistHere, AppContextType } from \"../types/Interface\";\r\n+import Player from \"../components/Player\";\r\n \r\n const AppContext = createContext<AppContextType | undefined>(undefined);\r\n \r\n export const AppProvider = ({ children }: { children: ReactNode }) => {\r\n-  // Lazy initialization to avoid unnecessary re-renders\r\n   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {\r\n     return Boolean(localStorage.getItem(\"token\"));\r\n   });\r\n \r\n   const [currentSong, setCurrentSong] = useState<Song | null>(null);\r\n   const [artistData, setArtistData] = useState<ArtistHere | null>(null);\r\n \r\n-  // Sync isLoggedIn with localStorage whenever it changes\r\n   useEffect(() => {\r\n     if (isLoggedIn) {\r\n       localStorage.setItem(\"token\", \"true\");\r\n     } else {\r\n       localStorage.removeItem(\"token\");\r\n     }\r\n   }, [isLoggedIn]);\r\n \r\n-  // Memoize context value to prevent unnecessary re-renders\r\n   const contextValue = useMemo(\r\n     () => ({\r\n       isLoggedIn,\r\n       setIsLoggedIn,\r\n@@ -41,9 +39,13 @@\n     [isLoggedIn, currentSong, artistData]\r\n   );\r\n \r\n   return (\r\n-    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>\r\n+    <AppContext.Provider value={contextValue}>\r\n+      {children}\r\n+      {/* Render Player globally when a song is playing */}\r\n+      {currentSong && <Player currentSong={currentSong} onNext={() => {}} onPrevious={() => {}} />}\r\n+    </AppContext.Provider>\r\n   );\r\n };\r\n \r\n // Custom hook to use the context\r\n"
+                },
+                {
+                    "date": 1740744019314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   useEffect,\r\n   useMemo,\r\n   ReactNode,\r\n } from \"react\";\r\n-import { Song, ArtistHere, AppContextType } from \"../types/Interface\";\r\n+import { Song,  AppContextType } from \"../types/Interface\";\r\n import Player from \"../components/Player\";\r\n \r\n const AppContext = createContext<AppContextType | undefined>(undefined);\r\n \r\n@@ -16,9 +16,8 @@\n     return Boolean(localStorage.getItem(\"token\"));\r\n   });\r\n \r\n   const [currentSong, setCurrentSong] = useState<Song | null>(null);\r\n-  const [artistData, setArtistData] = useState<ArtistHere | null>(null);\r\n \r\n   useEffect(() => {\r\n     if (isLoggedIn) {\r\n       localStorage.setItem(\"token\", \"true\");\r\n@@ -32,12 +31,11 @@\n       isLoggedIn,\r\n       setIsLoggedIn,\r\n       currentSong,\r\n       setCurrentSong,\r\n-      artistData,\r\n-      setArtistData,\r\n+      \r\n     }),\r\n-    [isLoggedIn, currentSong, artistData]\r\n+    [isLoggedIn, currentSong]\r\n   );\r\n \r\n   return (\r\n     <AppContext.Provider value={contextValue}>\r\n"
+                }
+            ],
+            "date": 1740743085267,
+            "name": "Commit-0",
+            "content": "import { createContext, useContext, useState, useEffect, useMemo, ReactNode } from \"react\";\r\nimport { Song, ArtistHere, AppContextType } from \"../types/Interface\";\r\n\r\nconst AppContext = createContext<AppContextType | undefined>(undefined);\r\n\r\nexport const AppProvider = ({ children }: { children: ReactNode }) => {\r\n  // Lazy initialization to avoid unnecessary re-renders\r\n  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {\r\n    return Boolean(localStorage.getItem(\"token\"));\r\n  });\r\n\r\n  const [currentSong, setCurrentSong] = useState<Song | null>(null);\r\n  const [artistData, setArtistData] = useState<ArtistHere | null>(null);\r\n\r\n  // Sync isLoggedIn with localStorage whenever it changes\r\n  useEffect(() => {\r\n    if (isLoggedIn) {\r\n      localStorage.setItem(\"token\", \"true\");\r\n    } else {\r\n      localStorage.removeItem(\"token\");\r\n    }\r\n  }, [isLoggedIn]);\r\n\r\n  // Memoize context value to prevent unnecessary re-renders\r\n  const contextValue = useMemo(\r\n    () => ({\r\n      isLoggedIn,\r\n      setIsLoggedIn,\r\n      currentSong,\r\n      setCurrentSong,\r\n      artistData,\r\n      setArtistData,\r\n    }),\r\n    [isLoggedIn, currentSong, artistData]\r\n  );\r\n\r\n  return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;\r\n};\r\n\r\n// Custom hook to use the context\r\nexport const useAppContext = () => {\r\n  const context = useContext(AppContext);\r\n  if (!context) {\r\n    throw new Error(\"useAppContext must be used within an AppProvider\");\r\n  }\r\n  return context;\r\n};\r\n"
+        }
+    ]
+}

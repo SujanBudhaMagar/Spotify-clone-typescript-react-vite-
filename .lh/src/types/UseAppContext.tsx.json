@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/types/UseAppContext.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1740735314619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740735354024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n // useAppContext.ts\r\n import { useContext } from \"react\";\r\n-import { AppContext } from \"./AppContext\"; // Assuming AppContext is in a separate file\r\n import { AppContextType } from \"../types/Interface\";\r\n \r\n const useAppContext = (): AppContextType => {\r\n   const context = useContext(AppContext);\r\n"
+                },
+                {
+                    "date": 1740735465430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n // useAppContext.ts\r\n import { useContext } from \"react\";\r\n import { AppContextType } from \"../types/Interface\";\r\n+import { AppContext } from \"./AppContext\";\r\n \r\n-const useAppContext = (): AppContextType => {\r\n+export const useAppContext = (): AppContextType => {\r\n   const context = useContext(AppContext);\r\n   if (!context) {\r\n     throw new Error(\"useAppContext must be used within an AppProvider\");\r\n   }\r\n"
+                }
+            ],
+            "date": 1740735314619,
+            "name": "Commit-0",
+            "content": "// useAppContext.ts\r\nimport { useContext } from \"react\";\r\nimport { AppContext } from \"./AppContext\"; // Assuming AppContext is in a separate file\r\nimport { AppContextType } from \"../types/Interface\";\r\n\r\nconst useAppContext = (): AppContextType => {\r\n  const context = useContext(AppContext);\r\n  if (!context) {\r\n    throw new Error(\"useAppContext must be used within an AppProvider\");\r\n  }\r\n  return context;\r\n};\r\n\r\nexport default useAppContext;\r\n"
+        }
+    ]
+}

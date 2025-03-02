@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/main.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1740735873812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740735880340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n \n createRoot(document.getElementById(\"root\")!).render(\n   <StrictMode>\n     <AppProvider>\n-\n-    <App />\n+      <App />\n     </AppProvider>\n   </StrictMode>\n );\n"
+                }
+            ],
+            "date": 1740735873812,
+            "name": "Commit-0",
+            "content": "import { StrictMode } from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App.tsx\";\nimport { AppProvider } from \"./components/AppContext.tsx\";\n\ncreateRoot(document.getElementById(\"root\")!).render(\n  <StrictMode>\n    <AppProvider>\n\n    <App />\n    </AppProvider>\n  </StrictMode>\n);\n"
+        }
+    ]
+}

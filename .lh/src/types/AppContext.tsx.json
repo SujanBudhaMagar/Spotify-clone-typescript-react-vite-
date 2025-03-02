@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/types/AppContext.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1740734780321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740734827893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,10 @@\n import { createContext, useContext, useState, ReactNode } from \"react\";\r\n import { Song, ArtistHere } from \"../types/Interface\";\r\n \r\n-// Define the context type\r\n-interface AppContextType {\r\n-  isLoggedIn: boolean;\r\n-  setIsLoggedIn: (value: boolean) => void;\r\n-  currentSong: Song | null;\r\n-  setCurrentSong: (song: Song | null) => void;\r\n-  artistData: ArtistHere | null;\r\n-  setArtistData: (artist: ArtistHere | null) => void;\r\n-}\r\n \r\n+\r\n+\r\n // Create Context with default values\r\n const AppContext = createContext<AppContextType | undefined>(undefined);\r\n \r\n // Context Provider Component\r\n"
+                },
+                {
+                    "date": 1740734881230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,9 @@\n import { createContext, useContext, useState, ReactNode } from \"react\";\r\n-import { Song, ArtistHere } from \"../types/Interface\";\r\n+import { Song, ArtistHere, AppContextType } from \"../types/Interface\";\r\n \r\n-// Create Context with default values\r\n const AppContext = createContext<AppContextType | undefined>(undefined);\r\n \r\n-// Context Provider Component\r\n export const AppProvider = ({ children }: { children: ReactNode }) => {\r\n   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(\r\n     Boolean(localStorage.getItem(\"token\"))\r\n   );\r\n"
+                },
+                {
+                    "date": 1740735056567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,8 @@\n     </AppContext.Provider>\r\n   );\r\n };\r\n \r\n-// Custom hook to use the context\r\n export const useAppContext = () => {\r\n   const context = useContext(AppContext);\r\n   if (!context) {\r\n     throw new Error(\"useAppContext must be used within an AppProvider\");\r\n"
+                }
+            ],
+            "date": 1740734780321,
+            "name": "Commit-0",
+            "content": "import { createContext, useContext, useState, ReactNode } from \"react\";\r\nimport { Song, ArtistHere } from \"../types/Interface\";\r\n\r\n// Define the context type\r\ninterface AppContextType {\r\n  isLoggedIn: boolean;\r\n  setIsLoggedIn: (value: boolean) => void;\r\n  currentSong: Song | null;\r\n  setCurrentSong: (song: Song | null) => void;\r\n  artistData: ArtistHere | null;\r\n  setArtistData: (artist: ArtistHere | null) => void;\r\n}\r\n\r\n// Create Context with default values\r\nconst AppContext = createContext<AppContextType | undefined>(undefined);\r\n\r\n// Context Provider Component\r\nexport const AppProvider = ({ children }: { children: ReactNode }) => {\r\n  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(\r\n    Boolean(localStorage.getItem(\"token\"))\r\n  );\r\n  const [currentSong, setCurrentSong] = useState<Song | null>(null);\r\n  const [artistData, setArtistData] = useState<ArtistHere | null>(null);\r\n\r\n  return (\r\n    <AppContext.Provider\r\n      value={{ isLoggedIn, setIsLoggedIn, currentSong, setCurrentSong, artistData, setArtistData }}\r\n    >\r\n      {children}\r\n    </AppContext.Provider>\r\n  );\r\n};\r\n\r\n// Custom hook to use the context\r\nexport const useAppContext = () => {\r\n  const context = useContext(AppContext);\r\n  if (!context) {\r\n    throw new Error(\"useAppContext must be used within an AppProvider\");\r\n  }\r\n  return context;\r\n};\r\n"
+        }
+    ]
+}

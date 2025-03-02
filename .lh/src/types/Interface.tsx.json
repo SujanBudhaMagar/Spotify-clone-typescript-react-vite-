@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/types/Interface.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1740725656425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740725770943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-export interface Artist {\r\n+export interface Artists {\r\n   id: number;\r\n   name: string;\r\n   img: string;\r\n }\r\n"
+                },
+                {
+                    "date": 1740725801935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-export interface Artists {\r\n+export interface Artist {\r\n   id: number;\r\n   name: string;\r\n   img: string;\r\n }\r\n"
+                },
+                {
+                    "date": 1740725859643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,4 +19,12 @@\n export interface FirstCardProps {\r\n   name: string;\r\n   listeners: string;\r\n }\r\n+\r\n+export const Artist = [\r\n+  {\r\n+    id: 1,\r\n+    name: \"Sushant KC\",\r\n+    img: \"https://linktoartistimage.com/sushantkc.jpg\",\r\n+    listeners: \"714,322\",\r\n+    songs: []}]\r\n"
+                },
+                {
+                    "date": 1740725898199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,11 +22,11 @@\n }\r\n \r\n export const Artist = [\r\n   {\r\n-    id: 1,\r\n-    name: \"Sushant KC\",\r\n-    img: \"https://linktoartistimage.com/sushantkc.jpg\",\r\n-    listeners: \"714,322\",\r\n+    id: number;\r\n+    name: string;\r\n+    img: string;\r\n+    listeners: string;\r\n     songs: [],\r\n   },\r\n ];\r\n"
+                }
+            ],
+            "date": 1740725656425,
+            "name": "Commit-0",
+            "content": "export interface Artist {\r\n  id: number;\r\n  name: string;\r\n  img: string;\r\n}\r\n\r\nexport interface Album {\r\n  img: string;\r\n  artist: string;\r\n  title: string;\r\n}\r\n\r\nexport interface MoreArtist {\r\n  id: number;\r\n  name: string;\r\n  img: string;\r\n}\r\n\r\nexport interface FirstCardProps{\r\n  name:string;\r\n  listeners:string;\r\n}\r\n"
+        }
+    ]
+}

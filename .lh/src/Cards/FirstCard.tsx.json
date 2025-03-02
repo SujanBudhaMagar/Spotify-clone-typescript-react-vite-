@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/Cards/FirstCard.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1740725553176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1740725553176,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { FirstCardProps } from \"../types/Interface\";\r\n\r\nconst FirstCard: React.FC<FirstCardProps> = ({ name, listeners }) => {\r\n  return (\r\n    <div className=\"gap-5\">\r\n      <h1 className=\"text-6xl font-bold\">{name}</h1>\r\n      <p className=\"text-gray-300\">{listeners}</p>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default FirstCard;\r\n"
+        }
+    ]
+}

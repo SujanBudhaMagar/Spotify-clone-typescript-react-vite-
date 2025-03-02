@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: #ffffff;
+}
+.test {
+  border: 1px solid red;
+}
+.spotify-clone {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.search-bar::placeholder {
+  text-align: center;
+  color: #b3b3b3;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.sidebar button:hover {
+  background-color: #1db954;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.popular-artists,
+.popular-albums {
+  margin-bottom: 30px;
+}
+
+.popular-artists h2,
+.popular-albums h2 {
+  margin-bottom: 20px;
+}
+
+.artist-list,
+.album-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.artist,
+.album {
+  background-color: #121212;
+  padding: 5px;
+  text-align: center;
+  width: 160px;
+}
+
+.artist img {
+  height: 70%;
+  width: 100%;
+  border-radius: 90%;
+  margin-bottom: 10px;
+}
+
+.album p {
+  margin: 5px 0;
+}
+
+/* Hide scrollbar for all browsers */
+.main-content::-webkit-scrollbar,
+.content-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure scrolling is enabled */
+.main-content,
+.content-container {
+  overflow-y: scroll;
+}
