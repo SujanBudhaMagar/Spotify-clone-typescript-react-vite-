@@ -44,7 +44,8 @@ const Player: React.FC<PlayerProps> = ({ currentSong, onNext, onPrevious }) => {
         setIsPlaying(false);
       });
     }
-    setIsPlaying(isPlaying);
+
+    setIsPlaying((prev) => !prev); // Correct state update
   }, [isPlaying, currentSong]);
 
   const handleVolumeChange = useCallback(

@@ -40,17 +40,15 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     <AppContext.Provider value={contextValue}>
       {children}
       {/* Render Player globally when a song is playing */}
-      {currentSong && (
-        <Player
-          currentSong={currentSong}
-          onNext={() => {
-            handleNext;
-          }}
-          onPrevious={() => {
-            handlePrevious;
-          }}
-        />
-      )}
+      {isLoggedIn
+        ? currentSong && (
+            <Player
+              currentSong={currentSong}
+              onNext={() => {}}
+              onPrevious={() => {}}
+            />
+          )
+        : null}
     </AppContext.Provider>
   );
 };

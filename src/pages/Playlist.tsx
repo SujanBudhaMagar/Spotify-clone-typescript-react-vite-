@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { FaCheckCircle, FaPlay } from "react-icons/fa";
 import { MdBorderHorizontal } from "react-icons/md";
 import { useEffect, useState } from "react";
-
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { ArtistHere, Song } from "../types/Interface";
@@ -15,6 +14,7 @@ const Playlist: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [artistData, setArtistData] = useState<ArtistHere | null>(null);
   const { currentSong, setCurrentSong } = useAppContext();
+  // const [queue, setQueue] = useState(true);
 
   const isLoggedIn = Boolean(localStorage.getItem("token"));
 

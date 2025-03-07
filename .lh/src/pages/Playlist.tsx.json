@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1740725525635,
@@ -52,6 +52,18 @@
                 {
                     "date": 1740739073285,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n \r\n import Navbar from \"../components/Navbar\";\r\n import Sidebar from \"../components/Sidebar\";\r\n import { ArtistHere, Song } from \"../types/Interface\";\r\n-import { Artist } from \"../DummyData\";\r\n import FirstCard from \"../Cards/FirstCard\";\r\n import Player from \"../components/Player\";\r\n import { useAppContext } from \"../components/AppContext\";\r\n+import { Artist } from \"../DummyData\";\r\n \r\n const Playlist: React.FC = () => {\r\n   const { id } = useParams<{ id: string }>();\r\n   const [artistData, setArtistData] = useState<ArtistHere | null>(null);\r\n"
+                },
+                {
+                    "date": 1741331446376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import { useParams } from \"react-router-dom\";\r\n import { FaCheckCircle, FaPlay } from \"react-icons/fa\";\r\n import { MdBorderHorizontal } from \"react-icons/md\";\r\n-import { useEffect, useState } from \"react\";\r\n-\r\n+import { use, useEffect, useState } from \"react\";\r\n import Navbar from \"../components/Navbar\";\r\n import Sidebar from \"../components/Sidebar\";\r\n import { ArtistHere, Song } from \"../types/Interface\";\r\n import FirstCard from \"../Cards/FirstCard\";\r\n@@ -14,8 +13,9 @@\n const Playlist: React.FC = () => {\r\n   const { id } = useParams<{ id: string }>();\r\n   const [artistData, setArtistData] = useState<ArtistHere | null>(null);\r\n   const { currentSong, setCurrentSong } = useAppContext();\r\n+  const [queue,setQueue] = useState(true)\r\n \r\n   const isLoggedIn = Boolean(localStorage.getItem(\"token\"));\r\n \r\n   const handleSongClick = (song: Song) => {\r\n"
+                },
+                {
+                    "date": 1741331500721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,8 +58,9 @@\n \r\n   if (!artistData) {\r\n     return <h1 className=\"text-white\">Artist Not Found</h1>;\r\n   }\r\n+  \r\n \r\n   return (\r\n     <div className=\"spotify-clone\">\r\n       <main className=\"main-content\">\r\n"
+                },
+                {
+                    "date": 1741331510488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { useParams } from \"react-router-dom\";\r\n import { FaCheckCircle, FaPlay } from \"react-icons/fa\";\r\n import { MdBorderHorizontal } from \"react-icons/md\";\r\n-import { use, useEffect, useState } from \"react\";\r\n+import { useEffect, useState } from \"react\";\r\n import Navbar from \"../components/Navbar\";\r\n import Sidebar from \"../components/Sidebar\";\r\n import { ArtistHere, Song } from \"../types/Interface\";\r\n import FirstCard from \"../Cards/FirstCard\";\r\n@@ -13,9 +13,9 @@\n const Playlist: React.FC = () => {\r\n   const { id } = useParams<{ id: string }>();\r\n   const [artistData, setArtistData] = useState<ArtistHere | null>(null);\r\n   const { currentSong, setCurrentSong } = useAppContext();\r\n-  const [queue, setQueue] = useState(true);\r\n+  // const [queue, setQueue] = useState(true);\r\n \r\n   const isLoggedIn = Boolean(localStorage.getItem(\"token\"));\r\n \r\n   const handleSongClick = (song: Song) => {\r\n"
                 }
             ],
             "date": 1740725525635,
